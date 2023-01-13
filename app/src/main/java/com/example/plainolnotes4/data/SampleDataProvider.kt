@@ -8,10 +8,11 @@ class SampleDataProvider {
         private val sampleText1 = "A simple note"
         private val sampleText2 = "A note a\nline feed"
         private val sampleText3 = """
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque finibus, magna eget ullamcorper eleifend, neque justo cursus nibh, sit amet fermentum nisi dui sed justo. Nulla ac nisl ut nulla euismod mollis. Aenean ullamcorper eu odio a rutrum. Mauris eu augue tortor. Pellentesque erat justo, gravida sed maximus eu, faucibus at justo. Aliquam ut nulla consectetur odio vestibulum vulputate vel id est. Aliquam erat volutpat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras id mattis lorem. Maecenas blandit efficitur magna. Nulla facilisi. Etiam quis dui placerat, feugiat augue eget, cursus neque. Integer auctor efficitur nisl, et ultrices lorem ullamcorper ut. Etiam maximus odio nisl, sed egestas lacus tincidunt at. Duis ligula dui, venenatis vitae quam quis, placerat ultricies ipsum. Donec at imperdiet nisi.
 
-            Fusce maximus sagittis dolor in tempor. Duis vehicula congue lectus eu lobortis. Integer placerat fermentum sapien, vel feugiat sapien pellentesque non. Integer nec nibh sit amet ex lacinia pretium sed et eros. Nam id consequat erat, eleifend mollis quam. In dictum lobortis quam vel tincidunt. Vestibulum non lobortis neque. Phasellus pharetra malesuada mauris eget blandit. Sed ornare nisl id nisl tristique placerat.
+        Mauris sagittis imperdiet ligula, sed luctus felis sollicitudin sit amet. In pretium libero in bibendum euismod. Praesent elementum varius turpis, vel aliquet ex convallis ut. Sed porta ligula id ex pellentesque, et suscipit nisi euismod. Aenean convallis vehicula vestibulum. Fusce sed tristique augue. Nunc tincidunt nisi venenatis, condimentum ante at, fermentum ante. Donec et lorem tempus, finibus ligula in, semper nunc. Cras vitae lorem nec nibh pretium convallis at id sapien. Suspendisse et facilisis ex.
         """.trimIndent()
+
 
         private fun getDate(diff: Long): Date {
             return Date(Date().time + diff)
@@ -22,6 +23,5 @@ class SampleDataProvider {
             NoteEntity(2, getDate(1), sampleText2),
             NoteEntity(3, getDate(2), sampleText3)
         )
-
     }
 }
