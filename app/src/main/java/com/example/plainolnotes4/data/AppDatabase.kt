@@ -29,3 +29,4 @@ abstract class AppDatabase: RoomDatabase() {
         }
     }
 }
+// I forgot to branch this again since I can not properly create github merg requests.
