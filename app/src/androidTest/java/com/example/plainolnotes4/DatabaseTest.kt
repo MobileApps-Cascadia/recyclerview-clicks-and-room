@@ -1,9 +1,14 @@
 package com.example.plainolnotes4
 
+import androidx.room.Room
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import com.example.plainolnotes4.data.AppDatabase
 import com.example.plainolnotes4.data.NoteDao
+import com.example.plainolnotes4.data.SampleDataProvider
+import org.junit.After
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -14,14 +19,23 @@ class DatabaseTest {
     private lateinit var database: AppDatabase
 
     @Before
-    fun createDB(){
-
+    fun createDb(){
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        database = Room.inMemoryDatabaseBuilder(appContext, AppDatabase::class.java)
+            .allowMainThreadQueries()
+            .build()
+        dao = database.noteDao()!!
     }
 
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        Assert.assertEquals("com.example.plainolnotes4", appContext.packageName)
+    fun createNotes() {
+        dao.insertAll(SampleDataProvider.getNotes())
+        val count = dao.getCount()
+        Assert.assertEquals(count, SampleDataProvider.getNotes().size)
+    }
+
+    @After
+    fun closeDb(){
+        database.close()
     }
 }
